@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b7c0ccd48444e81aa2769f53f9d2104, type: 3}
+  m_Name: game_config
+  m_EditorClassIdentifier: 
+  playerConfig: {fileID: 11400000, guid: a76bf650cc1bfd44ba989dad91d7e630, type: 2}
+  trafficConfig: {fileID: 11400000, guid: e67eb5796270bdf4f95660bd45604798, type: 2}
+  back: {fileID: 15766909589083213, guid: 7374035dee732744f9eeaa591429f99b, type: 3}
