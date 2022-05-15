@@ -23,6 +23,8 @@ namespace RushingMachine.Data
         [SerializeField] 
         private List<TrafficCarInfo> _enemies;
 
+        public Vector2[] trafficSpawnPositions;
+        
         public Dictionary<TrafficCarType, TrafficCarInfo> Enemies =>
             _enemies.ToDictionary(item => item.Type, item => item);
     }

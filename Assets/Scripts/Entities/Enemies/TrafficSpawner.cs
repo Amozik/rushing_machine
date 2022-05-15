@@ -7,7 +7,9 @@ using RushingMachine.Common.Pool;
 using RushingMachine.Data;
 using RushingMachine.Entities.Interfaces;
 using RushingMachine.Extensions;
+using UnityEngine;
 using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 namespace RushingMachine.Entities.Enemies
 {
@@ -17,19 +19,23 @@ namespace RushingMachine.Entities.Enemies
         public event Action<TrafficCarInfo, TrafficCarView> OnDeactivateEnemy;
         
         private readonly List<TrafficCarInfo> _enemies;
+        private readonly List<Vector2> _spawnPositions;
         private readonly ViewCache<TrafficCarType, TrafficCarView> _viewCache;
         
         private bool _canSpawn = true;
         private CancellationTokenSource _ctSource;
-        
-        public TrafficSpawner(IEnumerable<TrafficCarInfo> enemies)
+        private List<Vector2> _spawnedPositions;
+
+        public TrafficSpawner(IEnumerable<TrafficCarInfo> enemies, IEnumerable<Vector2> spawnPositions)
         {
+            _spawnPositions = spawnPositions.ToList();
+            _spawnedPositions = new List<Vector2>(_spawnPositions.Count);
             _enemies = enemies.ToList();
             _viewCache = new ViewCache<TrafficCarType, TrafficCarView>(_enemies.Count);
             _ctSource = new CancellationTokenSource();
         }
 
-        public void StartSpawn()
+        public async Task StartSpawn()
         {
             if (!_canSpawn)
             {
@@ -37,8 +43,12 @@ namespace RushingMachine.Entities.Enemies
                 return;
             }
             
+            _spawnedPositions.Add(_spawnPositions.GetRandomItem());
             foreach (var trafficCarInfo in _enemies)
             {
+                var startDelay = TimeSpan.FromSeconds(Random.Range(.5f, 1f));
+                await Task.Delay(startDelay, _ctSource.Token);
+                
                 SpawnEnemyAsync(trafficCarInfo).Forget();
                 
                 // var trafficCarView = Object.Instantiate(trafficCarInfo.EnemyPrefab);
@@ -56,10 +66,10 @@ namespace RushingMachine.Entities.Enemies
         {
             while (_canSpawn)
             {
-                //var trafficCarView = Object.Instantiate(carInfo.EnemyPrefab);
+                //TODO: исключить наезд машин друг на друга. Происходит, если машина медленне едет, чем та, что за ней
                 var trafficCarView = _viewCache.Create(carInfo.Type, carInfo.EnemyPrefab);
-                trafficCarView.transform.position = carInfo.EnemyPrefab.transform.position; //нужно переделать
-
+                trafficCarView.transform.position = GetNewPosition();
+                
                 void Handler(TrafficCarView gameObject)
                 {
                     trafficCarView.BecameInvisibleEvent -= Handler;
@@ -77,6 +87,22 @@ namespace RushingMachine.Entities.Enemies
         {
             _viewCache.Destroy(carInfo.Type, gameObject);
             OnDeactivateEnemy?.Invoke(carInfo, gameObject);
+        }
+
+        private Vector2 GetNewPosition()
+        {
+            var lastPosition = _spawnedPositions.Last();
+            //Debug.Log("Previous position: " + lastPosition.x);
+            if (_spawnedPositions.Count == _spawnPositions.Count())
+            {
+                _spawnedPositions.Clear();
+                _spawnedPositions.Add(lastPosition);
+            }
+            
+            var newPosition = _spawnPositions.GetRandomItemExcept(_spawnedPositions);
+            _spawnedPositions.Add(newPosition);
+            //Debug.Log("Spawn position: " + newPosition.x);
+            return newPosition;
         }
 
         public void Cleanup()

@@ -28,3 +28,8 @@ MonoBehaviour:
     HP: 15
     Speed: 5
     Points: 400
+  trafficSpawnPositions:
+  - {x: -5.85, y: 25}
+  - {x: -1.95, y: 25}
+  - {x: 1.95, y: 25}
+  - {x: 5.85, y: 25}

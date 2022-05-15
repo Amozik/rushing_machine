@@ -4,6 +4,7 @@ using RushingMachine.Data;
 using RushingMachine.Entities.Cars.Move;
 using RushingMachine.Entities.Enemies;
 using RushingMachine.Entities.Interfaces;
+using RushingMachine.Extensions;
 using UnityEngine;
 
 namespace RushingMachine.Controllers.Enemies
@@ -19,14 +20,14 @@ namespace RushingMachine.Controllers.Enemies
             _enemies = new List<TrafficCarView>();
             _enemyMove = new CompositeMove();
 
-            _trafficSpawner = new TrafficSpawner(config.Enemies.Values);
+            _trafficSpawner = new TrafficSpawner(config.Enemies.Values, config.trafficSpawnPositions);
             _trafficSpawner.OnSpawnEnemy += OnSpawnEnemy;
             _trafficSpawner.OnDeactivateEnemy += OnDeactivateEnemy;
         }
 
         public void Initialization()
         {
-            _trafficSpawner.StartSpawn();
+            _trafficSpawner.StartSpawn().Forget();
         }
         
         public IMove GetTrafficMove()
