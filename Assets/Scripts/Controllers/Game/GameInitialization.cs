@@ -18,7 +18,6 @@ namespace RushingMachine.Controllers.Game
             
             var trafficInitialization = new TrafficInitialization(data.trafficConfig);
             
-            // var playerInitialization = new PlayerInitialization(data.playerConfig.view);
             // var levelInitialization = new LevelInitialization();
             //
             // var player = playerInitialization.GetPlayer();
@@ -27,15 +26,14 @@ namespace RushingMachine.Controllers.Game
             // controllers.Add(new GeneratorLevelController(level.GenerateLevelView));
             // controllers.Add(levelInitialization.WaterAnimator); 
             //
-            // controllers.Add(playerInitialization);
-            //
             // controllers.Add(new PlayerAnimationController(data.playerConfig, player));
             // controllers.Add(new PlayerRigidbodyController(data.playerConfig, player));
             // controllers.Add(new CannonAimController(level.CanonView.MuzzleTransform, player.Transform));
             // controllers.Add(new BulletEmitterController(level.CanonView.BulletViews, level.CanonView.EmmiterTransform));
             // controllers.Add(new CoinsController(player, level.CoinViews, new SpriteAnimator(data.coinAnimationsConfig)));
-            // controllers.Add(new CameraController(player.Transform, camera.transform));
             // controllers.Add(new LevelCompleteManager(player, level.DeathZones, level.WinZones));
+            
+            controllers.Add(new CameraController(camera));
             controllers.Add(new BackgroundController(data.back));
             controllers.Add(inputInitialization);
             controllers.Add(playerInitialization);
