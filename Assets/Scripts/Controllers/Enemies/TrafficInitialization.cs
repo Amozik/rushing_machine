@@ -9,18 +9,24 @@ using UnityEngine;
 
 namespace RushingMachine.Controllers.Enemies
 {
-    public class TrafficInitialization : IInitialization, ICleanup
+    public class TrafficInitialization : IInitialization, IUpdate, ICleanup
     {
         private readonly List<TrafficCarView> _enemies;
         private readonly CompositeMove _enemyMove;
         private readonly TrafficSpawner _trafficSpawner;
+        
+        private readonly GameObject _road;
+        private RoadController _roadController;
 
-        public TrafficInitialization(TrafficConfig config)
+        public TrafficInitialization(TrafficConfig config, float worldSpeed)
         {
             _enemies = new List<TrafficCarView>();
             _enemyMove = new CompositeMove();
 
-            _trafficSpawner = new TrafficSpawner(config.Enemies.Values, config.trafficSpawnPositions);
+            _road = new GameObject("Road");
+            _roadController = new RoadController(_road.transform, worldSpeed, _enemies); //TODO возможно стоит вытащить на уровень выше
+
+            _trafficSpawner = new TrafficSpawner(config.Enemies.Values, config.trafficSpawnPositions, worldSpeed, _road);
             _trafficSpawner.OnSpawnEnemy += OnSpawnEnemy;
             _trafficSpawner.OnDeactivateEnemy += OnDeactivateEnemy;
         }
@@ -89,6 +95,11 @@ namespace RushingMachine.Controllers.Enemies
                 _trafficSpawner.OnDeactivateEnemy -= OnDeactivateEnemy;
                 _trafficSpawner.Cleanup();
             }
+        }
+
+        public void Update(float deltaTime)
+        {
+            _roadController.Update(deltaTime);
         }
     }
 }

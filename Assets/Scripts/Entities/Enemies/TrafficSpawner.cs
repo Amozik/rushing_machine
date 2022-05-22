@@ -21,17 +21,21 @@ namespace RushingMachine.Entities.Enemies
         private readonly List<TrafficCarInfo> _enemies;
         private readonly List<Vector2> _spawnPositions;
         private readonly ViewCache<TrafficCarType, TrafficCarView> _viewCache;
+        private readonly GameObject _road;
         
         private bool _canSpawn = true;
         private CancellationTokenSource _ctSource;
         private List<Vector2> _spawnedPositions;
+        private float _spawnPeriod;
 
-        public TrafficSpawner(IEnumerable<TrafficCarInfo> enemies, IEnumerable<Vector2> spawnPositions)
+        public TrafficSpawner(IEnumerable<TrafficCarInfo> enemies, IEnumerable<Vector2> spawnPositions, float worldSpeed, GameObject road)
         {
+            _road = road;
             _spawnPositions = spawnPositions.ToList();
             _spawnedPositions = new List<Vector2>(_spawnPositions.Count);
             _enemies = enemies.ToList();
             _viewCache = new ViewCache<TrafficCarType, TrafficCarView>(_enemies.Count);
+            _spawnPeriod = 40f / Math.Abs(worldSpeed);
             _ctSource = new CancellationTokenSource();
         }
 
@@ -70,17 +74,19 @@ namespace RushingMachine.Entities.Enemies
                 var trafficCarView = _viewCache.Create(carInfo.Type, carInfo.EnemyPrefab);
                 trafficCarView.Transform.position = GetNewPosition();
                 trafficCarView.Transform.rotation = Quaternion.identity;
+                trafficCarView.Transform.parent = _road.transform;
                 
                 void Handler(TrafficCarView gameObject)
                 {
                     trafficCarView.BecameInvisibleEvent -= Handler;
+                    trafficCarView.Transform.parent = trafficCarView.Transform.parent.parent;
                     DeactivateEnemy(carInfo, gameObject);
                 }
 
                 trafficCarView.BecameInvisibleEvent += Handler;
                 OnSpawnEnemy?.Invoke(carInfo, trafficCarView);
-                
-                await Task.Delay(TimeSpan.FromSeconds(10), _ctSource.Token);
+
+                await Task.Delay(TimeSpan.FromSeconds(_spawnPeriod), _ctSource.Token);
             }
         }
 

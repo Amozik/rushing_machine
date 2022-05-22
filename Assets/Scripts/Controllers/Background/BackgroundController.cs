@@ -7,11 +7,12 @@ namespace RushingMachine.Controllers.Background
     public class BackgroundController : IUpdate
     {
         private Transform _back;
-        private float _speed = -10f;
+        private float _speed;
         private float _offset = 87.9f;
         
-        public BackgroundController(GameObject back)
+        public BackgroundController(GameObject back, float speed)
         {
+            _speed = speed;
             _back = back.transform;
         }
 

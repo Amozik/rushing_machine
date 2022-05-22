@@ -16,7 +16,7 @@ namespace RushingMachine.Controllers.Game
             var inputInitialization = new InputInitialization();
             var playerInitialization = new PlayerInitialization(data.playerConfig);
             
-            var trafficInitialization = new TrafficInitialization(data.trafficConfig);
+            var trafficInitialization = new TrafficInitialization(data.trafficConfig, data.worldSpeed);
             
             // var levelInitialization = new LevelInitialization();
             //
@@ -34,7 +34,7 @@ namespace RushingMachine.Controllers.Game
             // controllers.Add(new LevelCompleteManager(player, level.DeathZones, level.WinZones));
             
             controllers.Add(new CameraController(camera));
-            controllers.Add(new BackgroundController(data.back));
+            controllers.Add(new BackgroundController(data.back, data.worldSpeed));
             controllers.Add(inputInitialization);
             controllers.Add(playerInitialization);
             controllers.Add(trafficInitialization);

@@ -7,7 +7,7 @@ namespace RushingMachine.Controllers.Enemies
     public class TrafficMoveController : IUpdate
     {
         private readonly IMove _move;
-        private Vector2 _direction = new Vector2(0, -1);
+        private Vector2 _direction = new Vector2(0, 1);
         
         public TrafficMoveController(IMove move)
         {
