@@ -68,7 +68,8 @@ namespace RushingMachine.Entities.Enemies
             {
                 //TODO: исключить наезд машин друг на друга. Происходит, если машина медленне едет, чем та, что за ней
                 var trafficCarView = _viewCache.Create(carInfo.Type, carInfo.EnemyPrefab);
-                trafficCarView.transform.position = GetNewPosition();
+                trafficCarView.Transform.position = GetNewPosition();
+                trafficCarView.Transform.rotation = Quaternion.identity;
                 
                 void Handler(TrafficCarView gameObject)
                 {
