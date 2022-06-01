@@ -8,6 +8,7 @@ namespace RushingMachine.Data
     {
         public PlayerConfig playerConfig;
         public TrafficConfig trafficConfig;
+        public UiConfig uiConfig;
         public GameObject back;
         public float worldSpeed = -10f;
     }

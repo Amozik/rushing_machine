@@ -1,6 +1,7 @@
 ﻿using RushingMachine.Controllers.Background;
 using RushingMachine.Controllers.Enemies;
 using RushingMachine.Controllers.Player;
+using RushingMachine.Controllers.UI;
 using RushingMachine.Controllers.UserInput;
 using RushingMachine.Data;
 using UnityEngine;
@@ -17,6 +18,8 @@ namespace RushingMachine.Controllers.Game
             var playerInitialization = new PlayerInitialization(data.playerConfig);
             
             var trafficInitialization = new TrafficInitialization(data.trafficConfig, data.worldSpeed);
+            
+            var uiInitialization = new UiInitialization(data.uiConfig);
             
             // var levelInitialization = new LevelInitialization();
             //
@@ -41,6 +44,7 @@ namespace RushingMachine.Controllers.Game
             controllers.Add(new InputController(inputInitialization.GetInput()));
             controllers.Add(new PlayerMoveController(playerInitialization.Move, inputInitialization.GetInput()));
             controllers.Add(new TrafficMoveController(trafficInitialization.GetTrafficMove()));
+            controllers.Add(new ScoreController(uiInitialization.Score));
 
         }
     }
