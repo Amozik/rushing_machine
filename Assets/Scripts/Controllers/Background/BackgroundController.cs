@@ -8,7 +8,7 @@ namespace RushingMachine.Controllers.Background
     {
         private Transform _back;
         private float _speed;
-        private float _offset = 87.9f;
+        private float _offset = 87.88f;
         
         public BackgroundController(GameObject back, float speed)
         {

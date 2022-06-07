@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using RushingMachine.Controllers.Interfaces;
 using RushingMachine.Data;
+using RushingMachine.Debug;
 using RushingMachine.Entities.Cars.Move;
 using RushingMachine.Entities.Enemies;
 using RushingMachine.Entities.Interfaces;
@@ -100,6 +101,8 @@ namespace RushingMachine.Controllers.Enemies
         public void Update(float deltaTime)
         {
             _roadController.Update(deltaTime);
+
+            DebugUI.Instance.EnemiesCount = _enemies.Count;
         }
     }
 }
