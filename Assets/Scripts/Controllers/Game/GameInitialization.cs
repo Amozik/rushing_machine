@@ -16,6 +16,7 @@ namespace RushingMachine.Controllers.Game
             
             var inputInitialization = new InputInitialization();
             var playerInitialization = new PlayerInitialization(data.playerConfig);
+            var policeInitialization = new PoliceInitialization(data.policeConfig);
             
             var trafficInitialization = new TrafficInitialization(data.trafficConfig, data.worldSpeed);
             
@@ -43,6 +44,7 @@ namespace RushingMachine.Controllers.Game
             controllers.Add(trafficInitialization);
             controllers.Add(new InputController(inputInitialization.GetInput()));
             controllers.Add(new PlayerMoveController(playerInitialization.Move, inputInitialization.GetInput()));
+            controllers.Add(new PlayerMoveController(policeInitialization.Move, inputInitialization.GetInput()));
             controllers.Add(new TrafficMoveController(trafficInitialization.GetTrafficMove()));
             controllers.Add(new ScoreController(uiInitialization.Score));
 

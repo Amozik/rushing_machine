@@ -7,6 +7,7 @@ namespace RushingMachine.Data
     public class GameConfig : ScriptableObject
     {
         public PlayerConfig playerConfig;
+        public PoliceConfig policeConfig;
         public TrafficConfig trafficConfig;
         public UiConfig uiConfig;
         public GameObject back;

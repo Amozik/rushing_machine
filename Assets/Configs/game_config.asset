@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: game_config
   m_EditorClassIdentifier: 
   playerConfig: {fileID: 11400000, guid: a76bf650cc1bfd44ba989dad91d7e630, type: 2}
+  policeConfig: {fileID: 11400000, guid: 5db22869769578e40a78dbbb201dae3d, type: 2}
   trafficConfig: {fileID: 11400000, guid: e67eb5796270bdf4f95660bd45604798, type: 2}
   uiConfig: {fileID: 11400000, guid: 09af817372636404ca31783a01cb369e, type: 2}
   back: {fileID: 0}
-  worldSpeed: -20
+  worldSpeed: -25
