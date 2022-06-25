@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: player_config
   m_EditorClassIdentifier: 
   view: {fileID: 7087726924627761788, guid: 4f88a2a60933c1e4ca03b5600c7eae38, type: 3}
+  mineView: {fileID: 8956514752532098724, guid: 9ae7341270a433840af5167fdda2516e, type: 3}

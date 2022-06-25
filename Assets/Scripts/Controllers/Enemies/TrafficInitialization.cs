@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace RushingMachine.Controllers.Enemies
 {
-    public class TrafficInitialization : IInitialization, IUpdate, ICleanup
+    public class TrafficInitialization : IInitialization, IFixedUpdate, ICleanup
     {
         private readonly List<TrafficCarView> _enemies;
         private readonly CompositeMove _enemyMove;
@@ -98,9 +98,9 @@ namespace RushingMachine.Controllers.Enemies
             }
         }
 
-        public void Update(float deltaTime)
+        public void FixedUpdate(float deltaTime)
         {
-            _roadController.Update(deltaTime);
+            _roadController.FixedUpdate(deltaTime);
 
             DebugUI.Instance.EnemiesCount = _enemies.Count;
         }

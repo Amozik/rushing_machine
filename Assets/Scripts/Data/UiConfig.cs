@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using RushingMachine.Common.UI.Views;
+using UnityEngine;
 
 namespace RushingMachine.Data
 {
@@ -6,6 +7,7 @@ namespace RushingMachine.Data
     public class UiConfig : ScriptableObject
     {
         public GameObject score;
+        public CircleTimer circleTimer;
         public GameObject endGame;
         public GameObject pauseMenu;
     }

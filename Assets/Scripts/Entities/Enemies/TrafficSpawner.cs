@@ -79,7 +79,7 @@ namespace RushingMachine.Entities.Enemies
                 void Handler(TrafficCarView gameObject)
                 {
                     trafficCarView.BecameInvisibleEvent -= Handler;
-                    trafficCarView.Transform.parent = trafficCarView.Transform.parent.parent;
+                    //trafficCarView.Transform.parent = trafficCarView.Transform.parent.parent;
                     DeactivateEnemy(carInfo, gameObject);
                 }
 

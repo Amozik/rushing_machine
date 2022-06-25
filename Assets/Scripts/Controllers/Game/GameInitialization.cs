@@ -1,4 +1,5 @@
-﻿using RushingMachine.Controllers.Background;
+﻿using RushingMachine.Common.Time;
+using RushingMachine.Controllers.Background;
 using RushingMachine.Controllers.Enemies;
 using RushingMachine.Controllers.Player;
 using RushingMachine.Controllers.UI;
@@ -37,6 +38,7 @@ namespace RushingMachine.Controllers.Game
             // controllers.Add(new CoinsController(player, level.CoinViews, new SpriteAnimator(data.coinAnimationsConfig)));
             // controllers.Add(new LevelCompleteManager(player, level.DeathZones, level.WinZones));
             
+            controllers.Add(Timer.TimersController);
             controllers.Add(new CameraController(camera));
             controllers.Add(new BackgroundController(data.back, data.worldSpeed));
             controllers.Add(inputInitialization);
@@ -44,6 +46,7 @@ namespace RushingMachine.Controllers.Game
             controllers.Add(trafficInitialization);
             controllers.Add(new InputController(inputInitialization.GetInput()));
             controllers.Add(new PlayerMoveController(playerInitialization.Move, inputInitialization.GetInput()));
+            controllers.Add(new PlayerWeaponController(playerInitialization.Weapon, uiInitialization.CircleTimer));
             controllers.Add(new PlayerMoveController(policeInitialization.Move, inputInitialization.GetInput()));
             controllers.Add(new TrafficMoveController(trafficInitialization.GetTrafficMove()));
             controllers.Add(new ScoreController(uiInitialization.Score));

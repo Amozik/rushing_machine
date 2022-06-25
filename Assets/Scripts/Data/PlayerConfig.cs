@@ -1,4 +1,5 @@
-﻿using RushingMachine.Entities.Player;
+﻿using RushingMachine.Entities.Cars.Weapon;
+using RushingMachine.Entities.Player;
 using UnityEngine;
 
 namespace RushingMachine.Data
@@ -7,6 +8,6 @@ namespace RushingMachine.Data
     public class PlayerConfig : ScriptableObject
     {
         public PlayerView view;
-
+        public MineView mineView;
     }
 }

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: ui_config
   m_EditorClassIdentifier: 
   score: {fileID: 1990790716343844467, guid: 2696249b121a047468c0153faf7a646e, type: 3}
+  circleTimer: {fileID: 1961325147835160920, guid: e0a572da54210734c852978e909dfa17, type: 3}
   endGame: {fileID: 0}
   pauseMenu: {fileID: 0}

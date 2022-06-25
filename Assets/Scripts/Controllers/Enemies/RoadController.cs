@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace RushingMachine.Controllers.Enemies
 {
-    public class RoadController : IUpdate
+    public class RoadController : IFixedUpdate
     {
         private readonly List<TrafficCarView> _enemies;
         private readonly List<Vector3> _tempPositions = new List<Vector3>();
@@ -21,7 +21,7 @@ namespace RushingMachine.Controllers.Enemies
             _enemies = enemies;
         }
 
-        public void Update(float deltaTime)
+        public void FixedUpdate(float deltaTime)
         {
             var backPosition = _transform.position;
             var offsetPositionY = Mathf.Repeat(backPosition.y + _speed * deltaTime, _offset);
