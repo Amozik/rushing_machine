@@ -8,6 +8,7 @@ namespace RushingMachine.Controllers
         private readonly List<IInitialization> _initializeControllers;
         private readonly List<IUpdate> _updateControllers;
         private readonly List<IFixedUpdate> _fixedUpdateControllers;
+        private readonly List<ILateUpdate> _lateUpdateControllers;
         private readonly List<ICleanup> _cleanupControllers;
 
         public CompositeController()
@@ -15,6 +16,7 @@ namespace RushingMachine.Controllers
             _initializeControllers = new List<IInitialization>();
             _updateControllers = new List<IUpdate>();
             _fixedUpdateControllers = new List<IFixedUpdate>();
+            _lateUpdateControllers = new List<ILateUpdate>();
             _cleanupControllers = new List<ICleanup>();
         }
 
@@ -30,9 +32,14 @@ namespace RushingMachine.Controllers
                 _updateControllers.Add(executeController);
             }
 
-            if (controller is IFixedUpdate lateExecuteController)
+            if (controller is IFixedUpdate fixedExecuteController)
             {
-                _fixedUpdateControllers.Add(lateExecuteController);
+                _fixedUpdateControllers.Add(fixedExecuteController);
+            }
+            
+            if (controller is ILateUpdate lateExecuteController)
+            {
+                _lateUpdateControllers.Add(lateExecuteController);
             }
 
             if (controller is ICleanup cleanupController)
@@ -62,6 +69,14 @@ namespace RushingMachine.Controllers
             for (var index = 0; index < _fixedUpdateControllers.Count; ++index)
             {
                 _fixedUpdateControllers[index].FixedUpdate(deltaTime);
+            }
+        }
+
+        public void LateUpdate(float deltaTime)
+        {
+            for (var index = 0; index < _lateUpdateControllers.Count; ++index)
+            {
+                _lateUpdateControllers[index].LateUpdate(deltaTime);
             }
         }
 

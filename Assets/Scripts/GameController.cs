@@ -41,6 +41,12 @@ namespace RushingMachine
             _controllersHandler.FixedUpdate(deltaTime);
         }
 
+        private void LateUpdate()
+        {
+            var deltaTime = Time.deltaTime;
+            _controllersHandler.LateUpdate(deltaTime);
+        }
+
         private void OnDestroy()
         {
             Dispose();
