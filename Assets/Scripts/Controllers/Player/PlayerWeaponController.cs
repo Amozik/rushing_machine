@@ -1,4 +1,5 @@
-﻿using RushingMachine.Common.Time;
+﻿using RushingMachine.Common.MessageBroker.Messages;
+using RushingMachine.Common.Time;
 using RushingMachine.Common.UI.Views;
 using RushingMachine.Controllers.Interfaces;
 using RushingMachine.Entities.Interfaces;
@@ -29,6 +30,9 @@ namespace RushingMachine.Controllers.Player
         private void OnComplete(ITimer timer)
         {
             _weapon.Shoot();
+            
+            //TODO: временно
+            Message.Enemy.Destroy.Publish(100);
         }
 
         private void OnTick()
