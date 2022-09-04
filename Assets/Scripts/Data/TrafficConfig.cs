@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using RushingMachine.Entities.Cars;
 using RushingMachine.Entities.Enemies;
 using UnityEngine;
 
@@ -12,6 +11,7 @@ namespace RushingMachine.Data
     {
         public TrafficCarType Type;
         public TrafficCarView EnemyPrefab;
+        public float Probability;
         public int HP;
         public float Speed;
         public int Points = 1;

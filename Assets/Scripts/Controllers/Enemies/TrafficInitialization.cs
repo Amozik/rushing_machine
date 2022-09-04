@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using RushingMachine.Controllers.Interfaces;
 using RushingMachine.Data;
 using RushingMachine.Debug;
 using RushingMachine.Entities.Cars.Move;
 using RushingMachine.Entities.Enemies;
 using RushingMachine.Entities.Interfaces;
-using RushingMachine.Extensions;
 using UnityEngine;
 
 namespace RushingMachine.Controllers.Enemies

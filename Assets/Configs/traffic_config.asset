@@ -15,16 +15,19 @@ MonoBehaviour:
   _enemies:
   - Type: 0
     EnemyPrefab: {fileID: 8620880006646504002, guid: fe1ae1d4fef3a514db09e8f8dfdd1a5c, type: 3}
+    Probability: 0.5
     HP: 5
     Speed: 5
     Points: 200
   - Type: 1
     EnemyPrefab: {fileID: 1729609918250520839, guid: 8c17e6cf103dfe642a62172c4819ad0e, type: 3}
+    Probability: 0.4
     HP: 10
     Speed: 3.5
     Points: 300
   - Type: 2
     EnemyPrefab: {fileID: 8550615639427428303, guid: 009d4b92302c45b4e911f1a0d34fb28f, type: 3}
+    Probability: 0.1
     HP: 15
     Speed: 2
     Points: 400
