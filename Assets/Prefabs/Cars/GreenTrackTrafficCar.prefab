@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4452482377315440689
+--- !u!1001 &5544631340060685483
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -56,16 +56,32 @@ PrefabInstance:
       value: TrafficCar
       objectReference: {fileID: 0}
     - target: {fileID: 8620880007279677408, guid: bbbe313b17af8ba48a0370e3be1b4701, type: 3}
+      propertyPath: m_Size.x
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8620880007279677408, guid: bbbe313b17af8ba48a0370e3be1b4701, type: 3}
       propertyPath: m_Size.y
-      value: 5.8
+      value: 7.4
       objectReference: {fileID: 0}
     - target: {fileID: 8620880007279677408, guid: bbbe313b17af8ba48a0370e3be1b4701, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7bef8ba56a84b024b9dad5774992bdaf, type: 3}
+      objectReference: {fileID: 21300000, guid: e097756a164d2314e92de37b22d23695, type: 3}
     - target: {fileID: 8620880007279677408, guid: bbbe313b17af8ba48a0370e3be1b4701, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8620880007279677410, guid: bbbe313b17af8ba48a0370e3be1b4701, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8620880007279677411, guid: bbbe313b17af8ba48a0370e3be1b4701, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8620880007279677411, guid: bbbe313b17af8ba48a0370e3be1b4701, type: 3}
+      propertyPath: m_Size.y
+      value: 7.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbbe313b17af8ba48a0370e3be1b4701, type: 3}

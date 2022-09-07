@@ -14,20 +14,86 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemies:
   - Type: 0
-    EnemyPrefab: {fileID: 8620880006646504002, guid: fe1ae1d4fef3a514db09e8f8dfdd1a5c, type: 3}
-    Probability: 0.5
+    EnemyPrefab: {fileID: 5362064844448875123, guid: 881ad1690f14a074ab377b2261fbb8bc, type: 3}
+    Probability: 0.1
+    HP: 5
+    Speed: 5
+    Points: 200
+  - Type: 0
+    EnemyPrefab: {fileID: 1117309168797123130, guid: 792c2b01e9a153b4fb6d8e28d34e049b, type: 3}
+    Probability: 0.1
+    HP: 5
+    Speed: 5
+    Points: 200
+  - Type: 0
+    EnemyPrefab: {fileID: 792085207444708011, guid: 92ac1557a45fd8544bbb8ec39a3b2b6b, type: 3}
+    Probability: 0.1
+    HP: 5
+    Speed: 5
+    Points: 200
+  - Type: 0
+    EnemyPrefab: {fileID: 1263769556419880658, guid: d1a03323a33e88348bd266fbc29b8e29, type: 3}
+    Probability: 0.1
+    HP: 5
+    Speed: 5
+    Points: 200
+  - Type: 0
+    EnemyPrefab: {fileID: 8182470818012361187, guid: ecec50934d6339944ab41ba3d2b385c6, type: 3}
+    Probability: 0.1
     HP: 5
     Speed: 5
     Points: 200
   - Type: 1
-    EnemyPrefab: {fileID: 1729609918250520839, guid: 8c17e6cf103dfe642a62172c4819ad0e, type: 3}
-    Probability: 0.4
+    EnemyPrefab: {fileID: 7322053603024184925, guid: 260dcc99757310a48a5a6dace5288b80, type: 3}
+    Probability: 0.07
+    HP: 10
+    Speed: 3.5
+    Points: 300
+  - Type: 1
+    EnemyPrefab: {fileID: 3196426221464179079, guid: f49c4c472ab304f4da828b3b60b2ce37, type: 3}
+    Probability: 0.07
+    HP: 10
+    Speed: 3.5
+    Points: 300
+  - Type: 1
+    EnemyPrefab: {fileID: 5225711664411485064, guid: f5c44b7c849092c4db1a0fd557065746, type: 3}
+    Probability: 0.07
+    HP: 10
+    Speed: 3.5
+    Points: 300
+  - Type: 1
+    EnemyPrefab: {fileID: 8620880006646504002, guid: e9df625022f6bd245834b053b5b58de3, type: 3}
+    Probability: 0.07
+    HP: 10
+    Speed: 3.5
+    Points: 300
+  - Type: 1
+    EnemyPrefab: {fileID: 5293512001951977287, guid: acd5e7ce8b08a0946867a72afd889ebb, type: 3}
+    Probability: 0.07
     HP: 10
     Speed: 3.5
     Points: 300
   - Type: 2
-    EnemyPrefab: {fileID: 8550615639427428303, guid: 009d4b92302c45b4e911f1a0d34fb28f, type: 3}
-    Probability: 0.1
+    EnemyPrefab: {fileID: 6636186948119041269, guid: a405635439533214cb4e582c0a3aae0b, type: 3}
+    Probability: 0.06
+    HP: 15
+    Speed: 2
+    Points: 400
+  - Type: 2
+    EnemyPrefab: {fileID: 4274470627412160233, guid: 9042a98d383fa974dac06317e17014de, type: 3}
+    Probability: 0.04
+    HP: 15
+    Speed: 2
+    Points: 400
+  - Type: 2
+    EnemyPrefab: {fileID: 3399505267711657560, guid: a347d0ffa8f5c0d4b873d9d3955ae96a, type: 3}
+    Probability: 0.03
+    HP: 15
+    Speed: 2
+    Points: 400
+  - Type: 2
+    EnemyPrefab: {fileID: 8889898337313870998, guid: 436d476cc262bfe488c490adf5b42d86, type: 3}
+    Probability: 0.02
     HP: 15
     Speed: 2
     Points: 400
